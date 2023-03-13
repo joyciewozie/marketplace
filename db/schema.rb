@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_090827) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_091036) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_090827) do
     t.integer "price_per_night"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "owner_id"
+    t.index ["owner_id"], name: "index_flats_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +50,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_090827) do
 
   add_foreign_key "bookings", "flats"
   add_foreign_key "bookings", "users", column: "customer_id"
+  add_foreign_key "flats", "users", column: "owner_id"
 end
