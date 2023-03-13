@@ -14,13 +14,19 @@
         <i class="fa-solid fa-user avatar"></i>
       </button>
       <ul class="dropdown-menu dropdown-menu-end mt-2 shadow p-2 mb-5 bg-body rounded" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Sign Up</a></li>
         <li>
-        <%# <a class="dropdown-item" href="#">Log In</a> %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %>
+        </li>
+
+        <li>
           <%= link_to "Log In", new_user_session_path, class: "dropdown-item" %>
         </li>
+
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Airbnb your home</a></li>
+
+        <li>
+          <%= link_to "Airbnb your home", root_path, class: "dropdown-item" %>
+        </li>
       </ul>
     </div>
   </div>
