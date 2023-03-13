@@ -10,23 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_074051) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_092147) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.boolean "accepted", null: false
+    t.boolean "accepted", default: false, null: false
     t.date "start_date", null: false
     t.date "end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "customer_id"
+    t.bigint "flat_id"
+    t.index ["customer_id"], name: "index_bookings_on_customer_id"
+    t.index ["flat_id"], name: "index_bookings_on_flat_id"
   end
 
   create_table "flats", force: :cascade do |t|
-    t.text "description"
-    t.integer "price_per_night"
+    t.text "description", null: false
+    t.integer "price_per_night", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "owner_id"
+    t.index ["owner_id"], name: "index_flats_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_074051) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "flats"
+  add_foreign_key "bookings", "users", column: "customer_id"
+  add_foreign_key "flats", "users", column: "owner_id"
 end
