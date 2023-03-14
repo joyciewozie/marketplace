@@ -4,7 +4,11 @@ class BookingsController < ApplicationController
   private
 
   def set_user
-  @user = User.find(params[:user_id])
- end
+    @user = User.find(params[:user_id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date, :customer_id)
+  end
 
 end
