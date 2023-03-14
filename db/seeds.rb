@@ -1,4 +1,4 @@
-require 'pry-byebug'
+# require 'pry-byebug'
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -38,8 +38,8 @@ flat_two = Flat.create(name: 'Semporna Palm Garden Retreat', location: 'Semporna
 # flat_eleven = Flat.create(name: '1Tebrau*27', location: 'Johor', description: "Keep it simple at this peaceful and centrally-located place.", price_per_night: '39', owner_id: '1')
 
 Booking.destroy_all
-binding.pry
-booking_one = Booking.create!(start_date: Date.new(2023,5,15), end_date: Date.new(2023,5,20), customer_id: 2, flat_id: 2)
+# binding.pry
+booking_one = Booking.new(start_date: Date.new(2023,5,15), end_date: Date.new(2023,5,20), customer_id: 2, flat_id: 2)
 # booking_two = Booking.create(start_date: Date.new(2023,6,18), end_date: Date.new(2023,6,23), customer_id: 2, flat_id: 4)
 # booking_three = Booking.create(start_date: Date.new(2023,6,1), end_date: Date.new(2023,6,6), customer_id: 2, flat_id: 5)
 # booking_four = Booking.create(start_date: Date.new(2023,6,9), end_date: Date.new(2023,6,14), customer_id: 2, flat_id: 9)
