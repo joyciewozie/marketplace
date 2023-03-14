@@ -6,4 +6,5 @@ class Flat < ApplicationRecord
   validates :price_per_night, presence: true
   validates :name, presence: true
   validates :location, presence: true
+  has_one_attached :photo
 end
