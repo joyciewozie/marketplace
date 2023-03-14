@@ -1,6 +1,15 @@
-<div>
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
+
+<!-- Display flats -->
+<div class="flats-cards-container">
+  <% @flats.each do |flat|  %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://a0.muscache.com/im/pictures/46b207dd-7e9c-4141-ba94-31d177d06a94.jpg?im_w=960" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to flat.name, flat_path(flat.id) %></h5>
+        <p class="card-text"><%= flat.location %></p>
+  </div>
+</div>
+  <% end  %>
 </div>
 
 <div class="main-container">
