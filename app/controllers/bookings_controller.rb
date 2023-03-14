@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_user, only: %i[new create]
 
+  def new
+    @booking = Booking.new
+  end
+
   private
 
   def set_user
