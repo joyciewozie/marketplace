@@ -1,89 +1,19 @@
-<div>
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
+
+<!-- Display flats -->
+<div class="flats-cards-container">
+  <% @flats.each do |flat|  %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://a0.muscache.com/im/pictures/46b207dd-7e9c-4141-ba94-31d177d06a94.jpg?im_w=960" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to flat.name, flat_path(flat.id) %></h5>
+        <p class="card-text"><%= flat.location %></p>
+  </div>
+</div>
+  <% end  %>
 </div>
 
 <div class="main-container">
-      <div class="cards">
-          <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/rio)">
-            Rio
-          </div>
 
-          <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/berlin)">
-            Berlin
-          </div>
-
-          <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/shanghai)">
-            Shanghai
-          </div>
-
-          <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/barcelona)">
-            Barcelona
-          </div>
-
-          <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/paris)">
-            Paris
-          </div>
-
-          <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/london)">
-            London
-          </div>
-
-          <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/melbourne)">
-            Melbourne
-          </div>
-
-          <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/marseille)">
-            Marseille
-          </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/buenos-aires)">
-          Buenos Aires
-        </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/bali)">
-          Bali
-        </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/tel-aviv)">
-          Tel Aviv
-        </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/kyoto)">
-          Kyoto
-        </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/copenhagen)">
-          Copenhagen
-        </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/lisbon)">
-          Lisbon
-        </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/montreal)">
-          Montreal
-        </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/nantes)">
-          Nantes
-        </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/milan)">
-          Milan
-        </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/tokyo)">
-          Tokyo
-        </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/amsterdam)">
-          Amsterdam
-        </div>
-
-        <div class="card" style="background-image: url(http://kitt.lewagon.com/placeholder/cities/lyon)">
-          Lyon
-        </div>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           Launch demo modal
