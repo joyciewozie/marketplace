@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_flat, only: %i[new create]
 
+  def new
+    @booking = Booking.new
+  end
+
   private
 
   def booking_params
