@@ -5,9 +5,7 @@ class FlatsController < ApplicationController
   end
 
   def show
-    @flat = Flat.find(params[:id])
-    # @user = User.find(@flat.owner_id)
-    # raise
+    @flat = Flat.find(params[:id])    
   end
 
   def new

@@ -3,41 +3,16 @@
 <div class="flats-cards-container">
   <% @flats.each do |flat|  %>
     <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="https://a0.muscache.com/im/pictures/46b207dd-7e9c-4141-ba94-31d177d06a94.jpg?im_w=960" alt="Card image cap">
+      <img class="card-img-top" src=" alt="Card image cap">
+      <% if flat.photo.attached? %>
+        <%= cl_image_tag flat.photo.key, class: "card-img-top" %>
+        <%else%>
+        No photo
+      <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= link_to flat.name, flat_path(flat.id) %></h5>
         <p class="card-text"><%= flat.location %></p>
   </div>
 </div>
   <% end  %>
-</div>
-
-<div class="main-container">
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Launch demo modal
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 </div>
