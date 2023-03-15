@@ -5,7 +5,7 @@ class FlatsController < ApplicationController
   end
 
   def show
-    @flat = Flat.find(params[:id])
+    @flat = Flat.find(params[:id])    
   end
 
   def new
@@ -17,6 +17,16 @@ class FlatsController < ApplicationController
     flat.owner = current_user
     flat.save!
     redirect_to flat_path(flat)
+  end
+
+  def edit
+    @flat = Flat.find(params[:id])
+  end
+
+  def update
+    @flat = Flat.find(params[:id])
+    @flat.update(flat_params)
+    redirect_to flat_path(@flat.id)
   end
 
   private
