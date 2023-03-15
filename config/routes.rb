@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root 'flats#index'
   resources :users
-
   resources :flats do
     resources :bookings
   end
