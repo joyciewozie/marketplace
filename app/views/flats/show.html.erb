@@ -1,3 +1,10 @@
+<!-- Upload image -->
+<% if @flat.photo.attached? %>
+  <%= cl_image_tag @flat.photo.key, class: "card-img-top" %>
+<%else%>
+  No photo
+<% end %>
+
 <h2 class="mt-2 mb-2 fw-bold"><%= @flat.name %></h2>
 
 <%# fs-6 d-flex text-center center %>
@@ -8,6 +15,7 @@
     <span class="me-2"> <%= (rand()*10).round(2) %> </span>
     <span class="me-2"><u> <%= (rand(100))%> reviews </u></span>
     <span><u> <%= @flat.location%></u></span>
+    <span><u> <%= link_to "Edit", edit_flat_path(@flat.id) %></u></span>
   </div>
 
   <div>
@@ -16,8 +24,7 @@
   </div>
 </div>
 
-<!-- Upload image -->
-<%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
+
 
 
 <%# flex-box %>
@@ -25,7 +32,7 @@
   <div class="row">
     <div class="col-8 p-0">
       <h2>
-        Entire villa hosted by <span class="logo fw-bold"><%= @user.name %></span>
+        Entire villa hosted by <span class="logo fw-bold"><%= @flat.owner.name %></span>
       </h2>
       <p class="fs-5">
         <%= (rand(5)+1) %> guests
