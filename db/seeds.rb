@@ -30,5 +30,5 @@ end
 
 puts 'Destroying all bookings'
 Booking.destroy_all
-booking_one = Booking.create(start_date: Date.new(2023,5,15), end_date: Date.new(2023,5,20), customer_id: 2, flat_id: 2)
-booking_two = Booking.create(accepted: true, start_date: Date.new(2023,6,18), end_date: Date.new(2023,6,23), customer_id: 2, flat_id: 1)
+booking_one = Booking.create(start_date: Date.new(2023,5,15), end_date: Date.new(2023,5,20), customer_id: user_two.id, flat_id: flat_two.id)
+booking_two = Booking.create(accepted: true, start_date: Date.new(2023,6,18), end_date: Date.new(2023,6,23), customer_id: user_two.id, flat_id: flat_one.id)
