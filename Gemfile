@@ -78,5 +78,7 @@ end
 
 gem "devise"
 gem 'faker'
+gem "geocoder"
 gem "dotenv-rails", groups: %i[development test]
 gem "cloudinary"
+
