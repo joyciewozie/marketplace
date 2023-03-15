@@ -1,6 +1,6 @@
 <!-- Upload image -->
 <% if @flat.photo.attached? %>
-  <%= cl_image_tag @flat.photo.key, class: "card-img-top" %>
+  <%= cl_image_tag @flat.photo.key%>
 <%else%>
   No photo
 <% end %>
