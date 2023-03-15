@@ -1,0 +1,17 @@
+<!-- Display flats -->
+<div class="flats-cards-container">
+  <% @flats.each do |flat|  %>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src=" alt="Card image cap">
+      <% if flat.photo.attached? %>
+        <%= cl_image_tag flat.photo.key, class: "card-img-top" %>
+        <%else%>
+        No photo
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to flat.name, flat_path(flat.id) %></h5>
+        <p class="card-text"><%= flat.location %></p>
+  </div>
+</div>
+  <% end  %>
+</div>
