@@ -15,22 +15,29 @@
 
   &:hover {
     border: #e41d57 1px solid;
+    background-color: #af1944;
   }
 
 }
 
 .back-button {
-  background-color:darkgray;
-  color: white;
+  background-color:white;
+  color: black;
   border-radius:5%;
+  border: black 1px solid;
 
   &:hover {
-    border: darkgray 1px solid;
+    border: black 1px solid;
+    background-color:lightgrey;
   }
 }
 
 .card-img-top {
-  height: 40rem !important;
+  object-fit: cover;
+  width: 228px;
+  height: 228px;
+  border: transparent 1px;
+  // height: 40rem !important;
 }
 
 .card-product {

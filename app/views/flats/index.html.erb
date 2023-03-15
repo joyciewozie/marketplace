@@ -1,8 +1,8 @@
 <!-- Display flats -->
 <div class="flats-cards-container">
-  <% @flats.each do |flat|  %>
-    <div class="card-container">
-    <div class="card" style="width: 18rem;">
+  <div class="card-container">
+    <% @flats.each do |flat|  %>
+      <div class="card">
       <% if flat.photo.attached? %>
         <%= cl_image_tag flat.photo.key, class: "card-img-top" %>
         <%else%>

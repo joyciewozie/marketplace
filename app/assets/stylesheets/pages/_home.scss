@@ -3,17 +3,26 @@ body {
   background-color:#ffffff;
 }
 
-
 .flats-cards-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  border: red solid 1px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 8px;
+  flex-grow: 1;
+  padding: 8px;
 }
 
 .card {
   margin: 8px;
-  border: none !important;
+  border: purple solid 1px;
+  width: 230px;
 }
 
 .card-body {
