@@ -30,5 +30,9 @@
 }
 
 .card-img-top {
-  height: 40rem !important;
+  object-fit: cover;
+  width: 228px;
+  height: 228px;
+  border: transparent 1px;
+  // height: 40rem !important;
 }
