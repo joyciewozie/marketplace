@@ -1,3 +1,10 @@
-<h1>User page</h1>
-<p>My bookings</p>
-<p><%= @flat.name %></p>
+<p></p>
+<p>My booking(s)</p>
+
+<div class="card-product">
+  <%= cl_image_tag @flat.photo.key%>
+  <div class="card-product-infos">
+    <h2><%= @flat.name %> at <%= @flat.location %></h2>
+    <p><strong>From </strong><%= @booking.start_date %><strong> to </strong> only<%= @booking.end_date %></p></p>
+  </div>
+</div>
