@@ -8,8 +8,12 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
-    @booking.save
-    redirect_to flat_path(@flat)
+    @booking.customer = current_user
+    if @booking.save
+      redirect_to user_path(current_user)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
