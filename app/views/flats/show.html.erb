@@ -18,7 +18,11 @@
 </div>
 
 <!-- Upload image -->
-<%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
+<% if @flat.photo.attached? %>
+  <%= cl_image_tag flat.photo.key, class: "card-img-top" %>
+<%else%>
+  No photo
+<% end %>
 
 
 <%# flex-box %>
@@ -54,4 +58,3 @@
 <div>
   <%= link_to "Back to Home", root_path, class: "btn back-button fs-3 rounded-4" %>
 </div>
-
