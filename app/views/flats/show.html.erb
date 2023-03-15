@@ -1,6 +1,10 @@
 <h2><%= @flat.name %></h2>
 <p><%= @flat.description %></h2>
 <p><%= @flat.price_per_night %></p>
-<p><%= @flat.owner_id %></p>
+<p><%= @flat.owner.name %></p>
 <p><%= @flat.location%></p>
-<%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
+<% if @flat.photo.attached? %>
+  <%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <img style="height: 300px; width: 400px;" src="https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg", class: "img-fluid">
+<% end %>
