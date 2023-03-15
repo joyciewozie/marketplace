@@ -1,6 +1,6 @@
 <!-- Upload image -->
 <% if @flat.photo.attached? %>
-  <%= cl_image_tag @flat.photo.key%>
+  <%= cl_image_tag @flat.photo.key, class: "flat-banner"%>
 <%else%>
   No photo
 <% end %>
