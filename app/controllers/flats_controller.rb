@@ -1,12 +1,23 @@
 class FlatsController < ApplicationController
   def index
     @flats = policy_scope(Flat)
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show
     @flat = Flat.find(params[:id])
     @booking = Booking.new
     authorize @flat
+    @markers = [{
+      lat: @flat.latitude,
+      lng: @flat.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {flat: @flat})
+    }]
   end
 
   def new

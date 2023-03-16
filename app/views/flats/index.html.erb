@@ -1,10 +1,10 @@
 <!-- Display flats -->
 <div class="flats-cards-container">
   <div class="card-container">
-    <% @flats.each do |flat|  %>
+    <% @flats.each do |flat| %>
       <div class="card">
       <% if flat.photo.attached? %>
-        <%= cl_image_tag flat.photo.key, class: "card-img-top" %>
+        <%= cl_image_tag flat.photo.key, class: "card-img-top", :cloud_name => 'dcakea82q' %>
         <%else%>
         No photo
       <% end %>
@@ -13,5 +13,14 @@
         <p class="card-text"><%= flat.location %></p>
       </div>
   </div>
-  <% end  %>
+  <% end %>
 </div>
+<%# <div> %>
+  <%# <h4>Where you’ll be<h4> %>
+  <%# <div style="width: 100%; height: 400px;" %>
+    <%# data-controller="map" %>
+    <%# data-map-markers-value="<%= @markers.to_json " %>
+    <%# data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] "></div> %>
+  <%# <p><strong><%= flat.location <strong></p> %>
+  <%# <p>There are attractions and public facilities you can be enjoyed nearby such as:</p> %>
+<%# </div> %>
