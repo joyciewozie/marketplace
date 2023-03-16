@@ -1,18 +1,16 @@
 class BookingsController < ApplicationController
-  before_action :set_flat, only: %i[new create]
-
-  def new
-    @booking = Booking.new
-  end
+  before_action :set_flat, only: %i[create]
 
   def create
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
+
     @booking.customer = current_user
+
     if @booking.save
       redirect_to user_path(current_user)
     else
-      render :new, status: :unprocessable_entity
+      render "flats/show", status: :unprocessable_entity
     end
   end
 

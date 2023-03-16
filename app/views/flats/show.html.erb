@@ -1,47 +1,46 @@
-<!-- Upload image -->
-<% if @flat.photo.attached? %>
-  <%= cl_image_tag @flat.photo.key, class: "flat-banner"%>
-<%else%>
-  No photo
-<% end %>
-
+<%# fs-6 d-flex text-center center %>
 <h2 class="mt-2 mb-2 fw-bold"><%= @flat.name %></h2>
 
-<%# fs-6 d-flex text-center center %>
-
-<div class="d-flex justify-content-between fs-6 mb-5">
+<!-- summary of flat -->
+<div class="d-flex justify-content-between fs-6">
   <div>
     <i class="fa-solid fa-star me-1"></i>
     <span class="me-2"> <%= (rand()*10).round(2) %> </span>
     <span class="me-2"><u> <%= (rand(100))%> reviews </u></span>
     <span><u> <%= @flat.location%></u></span>
-    <span><u> <%= link_to "Edit", edit_flat_path(@flat.id) %></u></span>
+    <% if policy(@flat).edit? %>
+      <span><u> <%= link_to "Edit", edit_flat_path(@flat.id) %></u></span>
+    <%end%>
   </div>
-
   <div>
     <i class="fa-solid fa-up-right-from-square"></i> <span class="me-2"><u>Share</u></span>
     <i class="fa-solid fa-heart"></i> <span><u>Save</u></span>
   </div>
 </div>
 
+<!-- Display image -->
+<% if @flat.photo.attached? %>
+  <%= cl_image_tag @flat.photo.key, class: "flat-banner"%>
+<%else%>
+  No photo
+<% end %>
 
-
-
+<!-- Flat description-->
 <%# flex-box %>
 <div class="container">
   <div class="row">
     <div class="col-8 p-0">
       <h2>
-        Entire villa hosted by <span class="logo fw-bold"><%= @flat.owner.name %></span>
+        Hosted by <span class="logo fw-bold"><%= @flat.owner.name %></span>
       </h2>
       <p class="fs-5">
-        <%= (rand(5)+1) %> guests
-        <%= (rand(5)+1) %> bedrooms
-        <%= (rand(5)+1) %> beds
+        <%= (rand(5)+1) %> guests •
+        <%= (rand(5)+1) %> bedrooms •
+        <%= (rand(5)+1) %> beds •
         <%= (rand(5)+1) %> bathrooms
       </p>
-
-        <p class="mt-4 fs-3"><%= @flat.description %></p>
+        <hr style="width: 88%;">
+        <p class="fs-5"><%= @flat.description %></p>
 
     </div>
 
@@ -49,8 +48,12 @@
       <div class="p-2">
         <div class="booking p-3">
           <h2>$<%= @flat.price_per_night %> SGD per night </h2>
-          <a class="btn booking-button fs-4 rounded-4 btn-sm" href="<%= new_flat_booking_path(@flat.id)%>">Book this stay</a>
-          <p class="mt-2">You will be charged <strong>immediately</strong></p>
+          <%= simple_form_for [@flat, @booking] do |f| %>
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
+            <p class="mt-2">You will be charged <strong>immediately</strong></p>
+            <%= f.submit "Reserve", class: "btn booking-button fs-4 rounded-4 btn-sm", id: "form-button" %>
+        <% end %>
         </div>
       </div>
     </div>
@@ -58,5 +61,12 @@
 </div>
 
 <div>
-  <%= link_to "Back to Home", root_path, class: "btn back-button fs-4 rounded-4 btn-sm" %>
+<h2 class="fs-4">Where you’ll be</h2>
+<div style="width: 100%; height: 400px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <p class="fs-5 bold"><%= @flat.location %></p>
+  <p>There are attractions and public facilities you can be enjoyed nearby such as:</p>
+  <p class="bold">Show more ></p>
 </div>
