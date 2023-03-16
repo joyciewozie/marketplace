@@ -12,12 +12,17 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/outdoors-v12"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.#addNavigationControl()
   }
-  
+
+  #addNavigationControl() {
+    this.map.addControl(new mapboxgl.NavigationControl());
+  }
+
   #addMarkersToMap() { 
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
