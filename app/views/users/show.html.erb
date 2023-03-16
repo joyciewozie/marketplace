@@ -3,8 +3,8 @@
 
 
 <div class="cards-container">
+<% @user.bookings.each do |booking| %>
   <div class="card-product">
-  <% @user.bookings.each do |booking| %>
     <% if booking.flat.photo.attached?%>
       <%= cl_image_tag booking.flat.photo.key, class: "card-product-infos" %>
       <% else %>
@@ -12,8 +12,8 @@
     <% end %>
   <div class="card-product-infos">
     <h2><%= booking.flat.name %> at <%= booking.flat.location %></h2>
-    <p><strong>From </strong><%= booking.start_date %><strong> to </strong> only<%= booking.end_date %></p></p>
+    <p><strong>From </strong><%= booking.start_date %><strong> to </strong><%= booking.end_date %></p></p>
     </div>
-  <%end%>
   </div>
+  <%end%>
 <div>
