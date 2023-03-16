@@ -1,10 +1,10 @@
 <!-- Display flats -->
 <div class="flats-cards-container">
   <div class="card-container">
-    <% @flats.each do |flat|  %>
+    <% @flats.each do |flat| %>
       <div class="card">
       <% if flat.photo.attached? %>
-        <%= cl_image_tag flat.photo.key, class: "card-img-top" %>
+        <%= cl_image_tag flat.photo.key, class: "card-img-top", :cloud_name => 'dcakea82q' %>
         <%else%>
         No photo
       <% end %>
