@@ -8,7 +8,7 @@
     <span class="me-2"> <%= (rand()*10).round(2) %> </span>
     <span class="me-2"><u> <%= (rand(100))%> reviews </u></span>
     <span><u> <%= @flat.location%></u></span>
-    <%if policy(@flat).edit?%>
+    <% if policy(@flat).edit? %>
       <span><u> <%= link_to "Edit", edit_flat_path(@flat.id) %></u></span>
     <%end%>
   </div>
@@ -39,8 +39,8 @@
         <%= (rand(5)+1) %> beds
         <%= (rand(5)+1) %> bathrooms
       </p>
-
-        <p class="mt-4 fs-3"><%= @flat.description %></p>
+        <hr style="width: 88%;">
+        <p class="fs-5"><%= @flat.description %></p>
 
     </div>
 
@@ -52,15 +52,10 @@
             <%= f.input :start_date %>
             <%= f.input :end_date %>
             <p class="mt-2">You will be charged <strong>immediately</strong></p>
-            <%= f.submit "Book", class: "btn booking-button fs-4 rounded-4 btn-sm", id: "form-button" %>
+            <%= f.submit "Reserve", class: "btn booking-button fs-4 rounded-4 btn-sm", id: "form-button" %>
         <% end %>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-
-<div>
-  <%= link_to "Back to Home", root_path, class: "btn back-button fs-4 rounded-4 btn-sm" %>
 </div>
