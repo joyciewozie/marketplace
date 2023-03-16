@@ -4,9 +4,9 @@ class FlatsController < ApplicationController
   end
 
   def show
-    authorise @flat
     @flat = Flat.find(params[:id])
     @booking = Booking.new
+    authorize @flat
   end
 
   def new
