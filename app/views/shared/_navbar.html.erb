@@ -34,6 +34,7 @@
         <% if user_signed_in? %>
           <li>
             <%= link_to "Airbnb your home", new_flat_path, class: "dropdown-item" %>
+            <%= link_to "Manage bookings", user_path(current_user), class:"dropdown-item" %>
           </li>
 
           <li><hr class="dropdown-divider"></li>
