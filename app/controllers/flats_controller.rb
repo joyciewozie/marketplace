@@ -7,10 +7,16 @@ class FlatsController < ApplicationController
         lng: flat.longitude
       }
     end
+    # raise
   end
 
   def show
     @flat = Flat.find(params[:id])
+    @markers = [{
+        lat: @flat.latitude,
+        lng: @flat.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {flat: @flat})
+      }]
   end
 
   def new
