@@ -7,8 +7,10 @@
 
 .footer {
   color: hsla(120, 4%, 5%, 0.791);
-  background-color: hsla(0, 0%, 91%, 0.973);
+  background-color: rgb(252, 252, 252);
   text-decoration: none;
+  font-size: 15px;
+
   a, a:link, a:visited  {
     color: hsla(120, 4%, 5%, 0.791);
     text-decoration: none;
@@ -19,4 +21,9 @@
   .icon {
     color: hwb(120 82% 13% / 0.791);
   }
+}
+
+.footer h3 {
+  font-size: 15px;
+  font-weight: bold;
 }
