@@ -1,33 +1,48 @@
-h6 {
-    font-size: 20px;
+// h6 {
+//     font-size: 20px;
+// }
+
+// * {
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+// }
+// body {
+//   font-family: "Montserrat";
+// }
+// section {
+//   min-height: 100vh;
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: aliceblue;
+// }
+
+
+
+.form-container {
+  width: 80%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  border-radius: 8px;
+  padding: 30px;
+  border:1px #e41d57 solid;
+  margin: 30px auto;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+#qn-title {
+  font-size: larger;
 }
-body {
-  font-family: "Montserrat";
+
+
+#qn-subtitle {
+  font-size:medium;
+  font-style: italic;
 }
-section {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: aliceblue;
-}
-.container {
-  max-width: 400px;
-  width: 90%;
-  padding: 20px;
-  box-shadow: 0px 0px 20px #00000020;
-  border-radius: 8px;
-  background-color: white;
-}
+
 .step {
   display: none;
+  width: 700px;
 }
 .step.active {
   display: block;
@@ -51,15 +66,22 @@ button.submit-btn {
   margin-top: 20px;
   padding: 10px 30px;
   border: none;
+  border-radius: 8px;
   outline: none;
-  background-color: rgb(180, 220, 255);
-  font-family: "Montserrat";
+  background-color: #e41d57;
+  color: white;
+  opacity: 80%;
   font-size: 18px;
   cursor: pointer; /* text-align: right; */
+  &:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+    border: 1.5px #e41d57 solid;
+    background-color: rgb(236, 117, 117);
+    color: black;
+  }
 }
+
+
 button.previous-btn {
   float: left;
-}
-button.submit-btn {
-  background-color: aquamarine;
 }
