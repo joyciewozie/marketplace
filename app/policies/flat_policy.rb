@@ -4,7 +4,15 @@ class FlatPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+    def edit?
+      record.owner == user
+    end
+
+    def update?
+      record.owner == user
+    end
   end
+
   def show?
     true
   end

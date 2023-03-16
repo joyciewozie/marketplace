@@ -8,7 +8,9 @@
     <span class="me-2"> <%= (rand()*10).round(2) %> </span>
     <span class="me-2"><u> <%= (rand(100))%> reviews </u></span>
     <span><u> <%= @flat.location%></u></span>
-    <span><u> <%= link_to "Edit", edit_flat_path(@flat.id) %></u></span>
+    <%if policy(@flat).edit?%>
+      <span><u> <%= link_to "Edit", edit_flat_path(@flat.id) %></u></span>
+    <%end%>
   </div>
   <div>
     <i class="fa-solid fa-up-right-from-square"></i> <span class="me-2"><u>Share</u></span>
