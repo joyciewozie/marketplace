@@ -1,4 +1,13 @@
 class Flat < ApplicationRecord
+  include PgSearch::Model
+
+  pg_search_scope :search_by_associated_users,
+                  against: %i[description price_per_night name location],
+                  associated_against: { owner: %i[name] },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
+
   belongs_to :owner, class_name: 'User', foreign_key: :owner_id
   has_many :bookings, dependent: :destroy
   has_one_attached :photo
