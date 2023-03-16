@@ -49,8 +49,8 @@
         <div class="booking p-3">
           <h2>$<%= @flat.price_per_night %> SGD per night </h2>
           <%= simple_form_for [@flat, @booking] do |f| %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
             <p class="mt-2">You will be charged <strong>immediately</strong></p>
             <%= f.submit "Reserve", class: "btn booking-button fs-4 rounded-4 btn-sm", id: "form-button" %>
         <% end %>
