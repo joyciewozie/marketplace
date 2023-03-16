@@ -1,15 +1,8 @@
-<!-- Upload image -->
-<% if @flat.photo.attached? %>
-  <%= cl_image_tag @flat.photo.key, class: "flat-banner"%>
-<%else%>
-  No photo
-<% end %>
-
+<%# fs-6 d-flex text-center center %>
 <h2 class="mt-2 mb-2 fw-bold"><%= @flat.name %></h2>
 
-<%# fs-6 d-flex text-center center %>
-
-<div class="d-flex justify-content-between fs-6 mb-5">
+<!-- summary of flat -->
+<div class="d-flex justify-content-between fs-6">
   <div>
     <i class="fa-solid fa-star me-1"></i>
     <span class="me-2"> <%= (rand()*10).round(2) %> </span>
@@ -17,16 +10,20 @@
     <span><u> <%= @flat.location%></u></span>
     <span><u> <%= link_to "Edit", edit_flat_path(@flat.id) %></u></span>
   </div>
-
   <div>
     <i class="fa-solid fa-up-right-from-square"></i> <span class="me-2"><u>Share</u></span>
     <i class="fa-solid fa-heart"></i> <span><u>Save</u></span>
   </div>
 </div>
 
+<!-- Display image -->
+<% if @flat.photo.attached? %>
+  <%= cl_image_tag @flat.photo.key, class: "flat-banner"%>
+<%else%>
+  No photo
+<% end %>
 
-
-
+<!-- Flat description-->
 <%# flex-box %>
 <div class="container">
   <div class="row">
@@ -49,13 +46,14 @@
       <div class="p-2">
         <div class="booking p-3">
           <h2>$<%= @flat.price_per_night %> SGD per night </h2>
-          <a class="btn booking-button fs-4 rounded-4 btn-sm" href="<%= new_flat_booking_path(@flat.id)%>">Book this stay</a>
+          <a class="btn booking-button fs-4 rounded-4 btn-sm" href="">Book this stay</a>
           <p class="mt-2">You will be charged <strong>immediately</strong></p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <div>
 <h2 class="fs-4">Where you’ll be</h2>
@@ -71,3 +69,10 @@
 <div>
   <%= link_to "Back to Home", root_path, class: "btn back-button fs-4 rounded-4 btn-sm" %>
 </div>
+
+<h1>New booking</h1>
+<%= simple_form_for [@flat, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Make booking", class: "btn btn-primary" %>
+<% end %>

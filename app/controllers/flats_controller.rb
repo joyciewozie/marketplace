@@ -12,6 +12,7 @@ class FlatsController < ApplicationController
 
   def show
     @flat = Flat.find(params[:id])
+    @booking = Booking.new
     @markers = [{
         lat: @flat.latitude,
         lng: @flat.longitude,
