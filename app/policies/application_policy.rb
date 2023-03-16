@@ -25,7 +25,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    @record.owner == @user
   end
 
   def edit?

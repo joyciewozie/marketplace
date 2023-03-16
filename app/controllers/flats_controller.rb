@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
   def index
-    @flats = Flat.all
+    @flats = policy_scope(Flat)
   end
 
   def show
@@ -11,9 +11,11 @@ class FlatsController < ApplicationController
 
   def new
     @flat = Flat.new
+    authorize @flat
   end
 
   def create
+    authorize @flat
     flat = Flat.new(flat_params)
     flat.owner = current_user
     flat.save!
@@ -21,13 +23,13 @@ class FlatsController < ApplicationController
   end
 
   def edit
-    authorize @flat
     @flat = Flat.find(params[:id])
+    authorize @flat
   end
 
   def update
-    authorize @flat
     @flat = Flat.find(params[:id])
+    authorize @flat
     @flat.update(flat_params)
     redirect_to flat_path(@flat.id)
   end
