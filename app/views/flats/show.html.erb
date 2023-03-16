@@ -48,8 +48,12 @@
       <div class="p-2">
         <div class="booking p-3">
           <h2>$<%= @flat.price_per_night %> SGD per night </h2>
-          <a class="btn booking-button fs-4 rounded-4 btn-sm" href="">Book this stay</a>
-          <p class="mt-2">You will be charged <strong>immediately</strong></p>
+          <%= simple_form_for [@flat, @booking] do |f| %>
+            <%= f.input :start_date %>
+            <%= f.input :end_date %>
+            <p class="mt-2">You will be charged <strong>immediately</strong></p>
+            <%= f.submit "Book", class: "btn booking-button fs-4 rounded-4 btn-sm", id: "form-button" %>
+        <% end %>
         </div>
       </div>
     </div>
@@ -60,10 +64,3 @@
 <div>
   <%= link_to "Back to Home", root_path, class: "btn back-button fs-4 rounded-4 btn-sm" %>
 </div>
-
-<h1>New booking</h1>
-<%= simple_form_for [@flat, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "Make booking", class: "btn btn-primary" %>
-<% end %>
