@@ -1,15 +1,8 @@
-<!-- Upload image -->
-<% if @flat.photo.attached? %>
-  <%= cl_image_tag @flat.photo.key, class: "flat-banner"%>
-<%else%>
-  No photo
-<% end %>
-
+<%# fs-6 d-flex text-center center %>
 <h2 class="mt-2 mb-2 fw-bold"><%= @flat.name %></h2>
 
-<%# fs-6 d-flex text-center center %>
-
-<div class="d-flex justify-content-between fs-6 mb-5">
+<!-- summary of flat -->
+<div class="d-flex justify-content-between fs-6">
   <div>
     <i class="fa-solid fa-star me-1"></i>
     <span class="me-2"> <%= (rand()*10).round(2) %> </span>
@@ -17,16 +10,20 @@
     <span><u> <%= @flat.location%></u></span>
     <span><u> <%= link_to "Edit", edit_flat_path(@flat.id) %></u></span>
   </div>
-
   <div>
     <i class="fa-solid fa-up-right-from-square"></i> <span class="me-2"><u>Share</u></span>
     <i class="fa-solid fa-heart"></i> <span><u>Save</u></span>
   </div>
 </div>
 
+<!-- Display image -->
+<% if @flat.photo.attached? %>
+  <%= cl_image_tag @flat.photo.key, class: "flat-banner"%>
+<%else%>
+  No photo
+<% end %>
 
-
-
+<!-- Flat description-->
 <%# flex-box %>
 <div class="container">
   <div class="row">
