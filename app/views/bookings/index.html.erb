@@ -1,0 +1,19 @@
+<p></p>
+<p>My booking(s)</p>
+
+
+<div class="cards-container">
+<% @user.bookings.each do |booking| %>
+  <div class="card-product">
+    <% if booking.flat.photo.attached?%>
+      <%= cl_image_tag booking.flat.photo.key, class: "card-product-infos" %>
+      <% else %>
+      <%= image_tag "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg" %>
+    <% end %>
+  <div class="card-product-infos">
+    <h2><%= booking.flat.name %> at <%= booking.flat.location %></h2>
+    <p><strong>From </strong><%= booking.start_date %><strong> to </strong><%= booking.end_date %></p></p>
+    </div>
+  </div>
+  <%end%>
+<div>
