@@ -1,0 +1,22 @@
+// .footet ul {
+//   list-style-type: none;
+//   margin: 0;
+//   padding: 0;
+// }
+
+
+.footer {
+  color: hsla(120, 4%, 5%, 0.791);
+  background-color: hsla(0, 0%, 91%, 0.973);
+  text-decoration: none;
+  a, a:link, a:visited  {
+    color: hsla(120, 4%, 5%, 0.791);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .icon {
+    color: hwb(120 82% 13% / 0.791);
+  }
+}
