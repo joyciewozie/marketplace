@@ -1,8 +1,8 @@
-<div><%= simple_form_for @flat do |f| %>
+<div class="mb-5 p-5"><%= simple_form_for @flat do |f| %>
     <%= f.input :description %>
     <%= f.input :price_per_night %>
     <%= f.input :name %>
     <%= f.input :location %>
     <%= f.input :photo, as: :file %>
-    <%= f.submit %>
+    <%= f.submit "Update", { class: "submit-btn" } %>
   <% end %></div>
