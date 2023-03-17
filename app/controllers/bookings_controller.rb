@@ -1,10 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_flat, only: %i[create]
 
-  def index
-    @booking = policy_scope(Booking)
-  end
-
   def show
     @booking = Booking.find(booking_params)
   end
