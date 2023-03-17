@@ -32,13 +32,16 @@
       <h2><%= flat.name %> at <%= flat.location %></h2>
       <%flat.bookings.each do |booking|%>
       <p>Booked by <strong><%= booking.customer.name %></strong> from <%= booking.start_date %> to <%= booking.end_date %></p>
-      <p>
-        <% if booking.accepted == true %>
-        Accepted
+    <div>
+      <input type = "checkbox" id ="status">
+      <label for="status">
+         <% if booking.accepted == true %>
+        <p>Accepted</p>
         <% else %>
-        Not Accepted
+        <p>Not Accepted</p>
         <%end%>
-      </p>
+      </label>
+    </div>
       <%end%>
     </div>
   </div>
