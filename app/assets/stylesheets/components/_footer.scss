@@ -1,9 +1,13 @@
 
 .footer {
   color: hsla(120, 4%, 5%, 0.791);
-  background-color: rgb(252, 252, 252);
+  background-color: rgb(250, 250, 250);
   text-decoration: none;
   font-size: 15px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 
   a, a:link, a:visited  {
     color: hsla(120, 4%, 5%, 0.791);
