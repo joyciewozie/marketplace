@@ -4,10 +4,10 @@
   background-color: rgb(250, 250, 250);
   text-decoration: none;
   font-size: 15px;
-  position: relative;
-  left: 0;
+  position: absolute;
   bottom: 0;
   width: 100%;
+  height: 150px;
 
   a, a:link, a:visited  {
     color: hsla(120, 4%, 5%, 0.791);
