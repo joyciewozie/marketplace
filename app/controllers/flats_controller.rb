@@ -2,12 +2,24 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @flats = policy_scope(Flat)
-    @markers = @flats.geocoded.map do |flat|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude
-      }
+    # raise
+    if params[:search_query].present?
+      @flats = policy_scope(Flat).search_by_location(params[:search_query])
+      # @flats = Flat.where(location: params[:query])
+      @markers = @flats.geocoded.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude
+        }
+      end
+    else
+      @flats = policy_scope(Flat)
+      @markers = @flats.geocoded.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude
+        }
+      end
     end
   end
 
