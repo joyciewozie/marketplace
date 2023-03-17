@@ -1,11 +1,20 @@
 class BookingsController < ApplicationController
   before_action :set_flat, only: %i[create]
 
+  def index
+    @booking = policy_scope(Booking)
+  end
+
+  def show
+    @booking = Booking.find(booking_params)
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
-
     @booking.customer = current_user
+
+    authorize @booking
 
     if @booking.save
       redirect_to user_path(current_user)

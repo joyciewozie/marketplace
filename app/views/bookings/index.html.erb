@@ -1,9 +1,8 @@
 <p></p>
-<p>My booking(s)</p>
-
+<p>ALL booking(s)</p>
 
 <div class="cards-container">
-<% @user.bookings.each do |booking| %>
+<% @bookings.each do |booking| %>
   <div class="card-product">
     <% if booking.flat.photo.attached?%>
       <%= cl_image_tag booking.flat.photo.key, class: "card-product-infos" %>
@@ -12,6 +11,7 @@
     <% end %>
   <div class="card-product-infos">
     <h2><%= booking.flat.name %> at <%= booking.flat.location %></h2>
+    <p><%= booking.customer.name %></p>
     <p><strong>From </strong><%= booking.start_date %><strong> to </strong><%= booking.end_date %></p></p>
     </div>
   </div>
