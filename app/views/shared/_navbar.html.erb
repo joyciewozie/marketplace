@@ -16,7 +16,7 @@
       <ul class="dropdown-menu dropdown-menu-end mt-2 shadow p-2 mb-5 bg-body rounded" aria-labelledby="dropdownMenuButton1">
         <% if user_signed_in? %>
           <li>
-            <%= link_to "Airbnb your home", new_flat_path, class: "dropdown-item" %>
+            <%= link_to "Airbnb your home", new_flat_path, class: "dropdown-item", data: {turbo: false} %>
             <%= link_to "Manage bookings", user_path(current_user), class:"dropdown-item" %>
           </li>
 
