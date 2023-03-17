@@ -19,8 +19,8 @@ user_two = User.create(name: "Anakin", password: '123456', email: 'dolor@sit.com
 puts 'Destroying all flats'
 Flat.destroy_all
 puts "Creating flats"
-flat_one = Flat.create(name: 'Cozy Seafront Studio', location: 'Penang', description: "Our home stay is a studio suite & private  condo near Penang bridge .", price_per_night: '60', owner_id: '1')
-flat_two = Flat.create(name: 'Semporna Palm Garden Retreat', location: 'Semporna', description: "Join your beloved ones at this Manggurin House vacation home, reawakening, reconnecting your five senses.", price_per_night: '75', owner_id: '1')
+flat_one = Flat.create(name: 'Cozy Seafront Studio', location: 'Penang', description: "Our home stay is a studio suite & private  condo near Penang bridge .", price_per_night: '60', owner_id: user_one.id)
+flat_two = Flat.create(name: 'Semporna Palm Garden Retreat', location: 'Semporna', description: "Join your beloved ones at this Manggurin House vacation home, reawakening, reconnecting your five senses.", price_per_night: '75', owner_id: user_one.id)
 # flat_one.photo.attach(
 #     io:  File.open(File.join(Rails.root,'app/assets/images/placeholder.jpg')),
 #     filename: 'placeholder.jpg'
@@ -35,7 +35,7 @@ flat_two = Flat.create(name: 'Semporna Palm Garden Retreat', location: 'Semporna
     puts "User created successfully..."
     2.times do
         puts "Creating flat"
-        flat = Flat.create(name: Faker::Address.community, location: Faker::Address.country, description: "Enjoy a stylish experience at this centrally-located place.", price_per_night: Faker::Number.between(from: 50, to: 150), owner_id: user.id)
+        flat = Flat.create(name: Faker::Address.community, location: Faker::Address.country, description: "Enjoy a stylish experience at this centrally-located place.", price_per_night: Faker::Number.between(from: 50, to: 150), owner_id: user_one.id)
         # flat.photo.attach(
         #     io:  File.open(File.join(Rails.root,'app/assets/images/placeholder.jpg')),
         #     filename: 'placeholder.jpg')
