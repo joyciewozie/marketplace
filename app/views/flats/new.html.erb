@@ -33,8 +33,8 @@
         <%= f.input :location %>
       </div>
 
-      <button type="button" class="previous-btn">Prev</button>
-      <button type="button" class="next-btn">Next</button>
+        <button type="button" class="previous-btn">Prev</button>
+        <button type="button" class="next-btn">Next</button>
     </div>
 
 
@@ -61,7 +61,7 @@
       </div>
 
       <button type="button" class="previous-btn">Prev</button>
-      <button type="submit" class="submit-btn"><%= f.submit %></button>
+      <%= f.submit "Submit", class: "submit-btn" %>
 
   <% end %>
 </div>
